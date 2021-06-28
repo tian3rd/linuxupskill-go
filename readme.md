@@ -83,3 +83,16 @@ Once you've reconnected back:
 - [x] Test fully “becoming root” by the command `sudo -i` This can be handy if you have a series of commands to do "as root". Note the change to your prompt.
 - [x] Type `exit` or `logout` to get back to your own normal login.
 - [x] Use `less` to view the file `/var/log/auth.log`, where any use of `sudo` is logged. You could "filter" this by typing: `grep "sudo" /var/log/auth.log`
+
+## Day4 - Installing software, exploring the file structure
+
+- [ ] Install a new application from the online repositories
+- [ ] Become familiar with some of the standard directories
+- [ ] Look at the format and content of some configuration files
+
+Try:
+
+- `apt search midnight commander`
+- `sudo apt install mc`
+- `sudo apt install hier`
+- How to play unix text game? `sudo apt install bsdgames` first.
