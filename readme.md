@@ -96,3 +96,20 @@ Try:
 - `sudo apt install mc`
 - `sudo apt install hier`
 - How to play unix text game? `sudo apt install bsdgames` first.
+
+## Day5 - More or Less...
+
+- [x] Get familiar with using more and less for viewing files, including being able to get to the top or bottom of a file in less, and searching for some text
+
+- [x] Test how “tab completion” works - this is a handy feature that helps you enter commands correctly. It helps find both the command and also file name parameters (so typing les then hitting “Tab” will complete the command less, but also typing less /etc/serv and pressing “Tab” will complete to less /etc/services. Try typing less /etc/s then pressing “Tab”, and again, to see how the feature handles ambiguity.
+
+- [x] Now that you've typed in quite a few commands, try pressing the “Up arrow” to scroll back through them. What you should notice is that not only can you see your most recent commands - but even those from the last time you logged in. Now try the history command - this lists out the whole of your cached command history - often 100 or more entries. There are number of clever things that can be done with this. The simplest is to repeat a command - pick one line to repeat (say number 20) and repeat it by typing !20 and pressing “Enter”. Later when you'll be typing long, complex, commands this can be very handy. You can also press Ctrl + r, then start typing any part of the command that you are looking for. You'll see an autocomplete of a past command at your prompt. If you keep typing, you'll get more specific options appear. You can either run it by pressing return, or editing it first by pressing arrows or other movement keys.
+
+  - `!!`: execute the last command; `sudo !!` to re-execute with root
+  - `!80`: execute the 80th command in history; `!-1` == `!!`
+  - `Ctrl-r`: reverse search the command history
+  - history commands are stored in `~/.bash_history` file with setting in `~/bashrc` specifying `HISTSIZE` etc.
+
+- [x] Look for “hidden” files in your home directory. In Linux the convention is simply that any file starting with a "." character is hidden. So, type cd to return to your "home directory" then ls -l to show what files are there. Now type `ls -la` or `ls -ltra` (the "a" is for "all") to show all the files - including those starting with a dot. By far the most common use of "dot files" is to keep personal settings in a home directory. So use your new skills with less to look at the contents of .bashrc , .bash_history and others.
+
+- [x] Finally, use the nano/vim editor to create a file in your home directory and type up a summary of how the last five days have worked for you.
