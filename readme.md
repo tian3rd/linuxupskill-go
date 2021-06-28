@@ -66,4 +66,20 @@ Useful link for setting up SSH config file and go password-_less_:
 - [x] Take the time today to understand how the environment variable PS1 work.
   - [x] [Bash Shell: Take Control of PS1, PS2, PS4 and PROMPT_COMMAND](https://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/)
 - [x] Set yourself up with a custom prompt using the infomation in [Bash Shell PS1](https://www.thegeekstuff.com/2008/09/bash-shell-ps1-10-examples-to-make-your-linux-prompt-like-angelina-jolie/)
-  - [ ] The problem is that `.bashrc` is for non-login user only? What's the relationship between the bash config files?
+  - [x] The problem is that `.bashrc` is for non-login user only? What's the relationship between the bash config files?
+    - In this case, it just need rebooting/reconnecting...
+
+## Day3 - Power Trip!
+
+- [x] Use the links in the "Resources" section below to understand how `sudo` works (refer to original repo for links)
+- [x] Use `ls -l` to check the permissions of `/etc/shadow` - notice that only `root` has any access. Can you use `cat`, `less` or `nano` to view it?
+- [x] This file is where the hashed passwords are kept. It is a prime target for intruders - who aim to grab it and use offline password crackers to discover the passwords.
+- [x] Now try with `sudo`, e.g. `sudo less /etc/shadow`
+- [x] Test running the `reboot` command, and then via `sudo` (i.e. `sudo reboot`)
+
+Once you've reconnected back:
+
+- [x] Use the `uptime` command to confirm that your server did actually fully restart
+- [x] Test fully “becoming root” by the command `sudo -i` This can be handy if you have a series of commands to do "as root". Note the change to your prompt.
+- [x] Type `exit` or `logout` to get back to your own normal login.
+- [x] Use `less` to view the file `/var/log/auth.log`, where any use of `sudo` is logged. You could "filter" this by typing: `grep "sudo" /var/log/auth.log`
