@@ -48,3 +48,22 @@ Useful link for setting up SSH config file and go password-_less_:
 
 1. https://linuxize.com/post/using-the-ssh-config-file/
 2. https://linuxize.com/post/how-to-setup-passwordless-ssh-login/
+
+## Day2 - Basic Navigation
+
+- [x] Use the provided resources to check out the basic commands and concepts
+- [x] Login to your server via SSH and move about the directory structure at the command line
+- [x] Take note of how your "prompt" changes as you change directory
+- [x] Be sure to understand how `cd` on its own takes you back to your "home directory"
+- [x] Understand what `cd ~` and `cd ..` do
+- [x] Use the `ls` command to list the contents of directories, and try several of the "switches" - in particular `ls -ltr` to show the most recently altered file last
+- [x] Use the `mkdir` command to create a new directory (folder) `test` in your home folder (e.g `/home/support/test`)
+
+### Extenstions
+
+- [x] Learn about `pushd` and `popd` to navigate around multiple directories easily.
+  - [x] Running pushd /var/log moves you to to the /var/log, but keeps track of where you were. You can pushd more than one directory at a time. Try it out: pushd /var/log, pushd /dev, pushd /etc, pushd, popd, popd. Note how pushd with no arguments switches between the last two pushed directories but more complex navigation is also possible. Finally, cd - also moves you the last visited directory.
+- [x] Take the time today to understand how the environment variable PS1 work.
+  - [x] [Bash Shell: Take Control of PS1, PS2, PS4 and PROMPT_COMMAND](https://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/)
+- [x] Set yourself up with a custom prompt using the infomation in [Bash Shell PS1](https://www.thegeekstuff.com/2008/09/bash-shell-ps1-10-examples-to-make-your-linux-prompt-like-angelina-jolie/)
+  - [ ] The problem is that `.bashrc` is for non-login user only? What's the relationship between the bash config files?
