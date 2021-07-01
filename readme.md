@@ -113,3 +113,17 @@ Try:
 - [x] Look for “hidden” files in your home directory. In Linux the convention is simply that any file starting with a "." character is hidden. So, type cd to return to your "home directory" then ls -l to show what files are there. Now type `ls -la` or `ls -ltra` (the "a" is for "all") to show all the files - including those starting with a dot. By far the most common use of "dot files" is to keep personal settings in a home directory. So use your new skills with less to look at the contents of .bashrc , .bash_history and others.
 
 - [x] Finally, use the nano/vim editor to create a file in your home directory and type up a summary of how the last five days have worked for you.
+
+## Day6 - Editing with "vim"
+
+`:%s/old/new/gc`:
+
+- `:`: enter command mode
+- `%`: go to match in all lines
+- `s`: substitute
+- `/`: find
+- `old` and `new`: old words to be replaced with new words
+- `g`: global
+- `c`: confirm before replacing
+
+[Graphical vi-vim Cheat Sheet and Tutorial](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
