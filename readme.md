@@ -127,3 +127,18 @@ Try:
 - `c`: confirm before replacing
 
 [Graphical vi-vim Cheat Sheet and Tutorial](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
+
+## Day7 - Installing Apache
+
+- [x] Refresh your list of available packages (apps) by: `sudo apt update` - this takes a moment or two, but ensures that you'll be getting the latest versions.
+- [x] Install Apache from the repository with a simple: `sudo apt install apache2`
+- [x] Confirm that it’s running by browsing to http://[external IP of your server where you should see a confirmation page.
+  - notice that it's `http` instead of `https`
+- [x] Apache is installed as a "service" - a program that starts automatically when the server starts and keeps running whether anyone is logged in or not. Try stopping it with the command: `sudo systemctl stop apache2` - check that the webpage goes dead - then re-start it with `sudo systemctl start apache2` - and check its status with: `systemctl status apache2`.
+- [x] As with the vast majority of Linux software, configuration is controlled by files under the /etc directory - check the configuration files under /etc/apache2 especially /etc/apache2/apache2.conf - you can use less to simply view them, or the vim editor to view and edit as you wish.
+- [x] In /etc/apache2/apache2.conf there's the line with the text: "IncludeOptional conf-enabled/_.conf". This tells Apache that the _.conf files in the subdirectory conf-enabled should be merged in with those from /etc/apache2/apache2.conf at load. This approach of lots of small specific config files is common.
+- [ ] If you're familiar with configuring web servers, then go crazy, setup some virtual hosts, or add in some mods etc.
+- [x] The location of the default webpage is defined by the DocumentRoot parameter in the file /etc/apache2/sites-enabled/000-default.conf.
+- [x] Use less or vim to view the code of the default page - normally at /var/www/html/index.html. This uses fairly complex modern web design - so you might like to browse to http://54.147.18.200/sample where you'll see a much simpler page. Use View Source in your browser to see the code of this, copy it, and then, in your ssh session sudo vim /var/www/html/index.html to first delete the existing content, then paste in this simple example - and then edit to your own taste. View the result with your workstation browser by again going to http://[external IP of your server]
+  - [ ] What's the difference/relation between a public IPv4 address and IPv6? I used `ifconfig` to find the addresses, but it doesn't show my IPv4 address.
+- [x] As with most Linux services, Apache keeps its logs under the /var/log directory - look at the logs in /var/log/apache2 - in the access.log file you should be able to see your session from when you browsed to the test page. Notice that there's an overwhelming amount of detail - this is typical, but in a later lesson you'll learn how to filter out just what you want. Notice the error.log file too - hopefully this one will be empty!
