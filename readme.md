@@ -229,3 +229,35 @@ Try:
 - [ ] `rsync -av dir/ user@host:dir`
   - [ ] example: current directory is `~/Documents/linuxupskillchallenge/`, type in `rsync -e "ssh -i day0/keypair4linuxupskills.pem" -av localdir/ ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com:remotedir`. `-e` for execute; `-a` for archive `-v` for verbose, `-u` for update, `-n` for dry-run, `-P` for showing progressing when tranferring large files. If remotedir does not exist, it will be created.
   - [ ] `rsync -e "ssh -i day0/keypair4linuxupskills.pem" -rav localdir/ ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com:remotedir` use `-r` to recursively sync with remote server.
+
+## Day13 - Who Has Permission?
+
+- `ls -ltr tuesday.txt`
+- `chmod u-w tuesday.txt`
+- `chmod g-w tuesday.txt`
+- `chmod o-r tuesday.txt`
+- `ls -ltr tuesday.txt`
+- `chmod u+w tuesday.txt`
+- `chmod g+w tuesday.txt`
+- `ls -ltr tuesday.txt`
+- `groups`: On an Ubuntu sytem, the first user created (in this case, user "ubuntu") should be a member of the groups: 'ubuntu', 'sudo' and 'adm'.
+- `usermod -aG group user`: change a user's group
+- `sudo adduser fred`
+- `sudo su fred`: become fred
+- `exit`
+- `sudo usermod -aG sudo fred`
+
+- [ ] Take time to read the resources
+
+## Day14 - Little Helper
+
+- `sudo adduser helen`: add also password, full name, etc
+- `less /etc/passwd` `less /etc/group`: a new user 'helen' and a group with the same name will be created; a hashcode of the password for the user is in `/etc/shadow`
+- `ls -l /etc/sudoers`
+- `sudo less /etc/sudoers`
+- `sudo -i`: temporarily become root user
+- `sudo vim /etc/sudoers`: add `helen ALL=NOPASSWD:/sbin/reboot`
+- `exit`
+  Now testing.
+- `sudo su helen`: FAILED!
+  - [ ] If your ssh config allows login only with public keys, you'll need to setup /home/helen/.ssh/authorized_keys - including getting the owner and permissions correct. A little challenge of your understanding of this area!
