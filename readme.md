@@ -163,3 +163,23 @@ Try:
   - `grep "root" /var/log/auth.log | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\│}" | sort | uniq > ~/attackers.txt`
 - [ ] Investigate the awk and sed commands. When you're having difficulty figuring out how to do something with grep and cut, then you may need to step up to using these. Googling for "linux sed tricks" or "awk one liners" will get you many examples.
 - [ ] Aim to learn at least one simple useful trick with both awk and sed
+
+## Day 9 - Ports, Open and Closed
+
+- Port 22: ssh (config in `/etc/ssh/sshd_config`)
+- Port 23: telnet
+- Port 80: http
+- Port 53: dns
+
+`ss`: socket status is a tandard utility replacing old `netstat`, use `ss -ltpn` to check status
+`nmap`: port scanner; use `ip a` to find the IP of your actural network card, and the `nmap` that
+`ufw`: firewall functionality for `iptables` and `nftables`
+
+- `sudo iptables -L`
+- Apply some rules: allow `ssh` and deny `http`, afterwards your AWS public ipv4 address via `http`(not `https`) will drop all incoming traffic so it's not accessible from outside though it's still running locally:
+  - `suo ufw allow ssh`
+  - `sudo ufw deny http`
+  - `sudo ufw enable`
+- To reverse, add the followings:
+  - `sudo ufw allow http`
+  - `sudo ufw enable`
