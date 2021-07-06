@@ -6,6 +6,8 @@
 
 Used my gmail account to create a free tier account in AWS, and launch the instance (all traffic, from anywhere) ![connecting](https://cdn-std.droplr.net/files/acc_498334/ntVSsj)
 
+Detailed guide here: https://github.com/livialima/linuxupskillchallenge/blob/master/00-AWS-Free-Tier.md
+
 `ssh` connection: `ssh -i "keypair4linuxupskills.pem" ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com`
 
 Admin tasks:
@@ -166,6 +168,7 @@ Try:
 
 ## Day9 - Ports, Open and Closed
 
+- Port 21: ftp
 - Port 22: ssh (config in `/etc/ssh/sshd_config`)
 - Port 23: telnet
 - Port 80: http
@@ -204,3 +207,25 @@ Try:
 ### Extenstions
 
 - [ ] `find` examples and tricks
+
+## Day12 - Copying with SFTP
+
+- SMB: Microsoft's file sharing, useful on a local network of Windows machines
+- AFP: Apple’s file sharing, useful on a local network of Apple machines
+- WebDAV: Sharing over web (http) protocols
+- FTP: Traditional Internet sharing protocol
+- scp: Simple support for copying files
+- rsync: Fast, very efficient file copying
+- SFTP: file access and copying over the SSH protocol (Despite the name, the SFTP protocol at a technical level is completely unrelated to traditional FTP)
+
+- From day0, remember user@hostname: ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com
+
+- [ ] Login to remote server via `sftp`: `sftp -i "keypair4linuxupskills.pem" ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com`
+  - [ ] In sftp, some commands are not working as in normal terminal env, why is that?
+- [ ] `pwd` vs `lpwd`; `ls` vs `lls`, etc
+- [ ] Use `put`, `mput`, for uploading local files to remote server; use `get`, `mget` to download files from remote server
+- [ ] Use a GUI to interact with remote host. CyberDuck settings for sftp: ![CyberDuck_SFTP](https://cdn-std.droplr.net/files/acc_498334/mJzeGe)
+
+- [ ] `rsync -av dir/ user@host:dir`
+  - [ ] example: current directory is `~/Documents/linuxupskillchallenge/`, type in `rsync -e "ssh -i day0/keypair4linuxupskills.pem" -av localdir/ ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com:remotedir`. `-e` for execute; `-a` for archive `-v` for verbose, `-u` for update, `-n` for dry-run, `-P` for showing progressing when tranferring large files. If remotedir does not exist, it will be created.
+  - [ ] `rsync -e "ssh -i day0/keypair4linuxupskills.pem" -rav localdir/ ubuntu@ec2-18-117-241-98.us-east-2.compute.amazonaws.com:remotedir` use `-r` to recursively sync with remote server.
