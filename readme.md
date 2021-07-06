@@ -164,7 +164,7 @@ Try:
 - [ ] Investigate the awk and sed commands. When you're having difficulty figuring out how to do something with grep and cut, then you may need to step up to using these. Googling for "linux sed tricks" or "awk one liners" will get you many examples.
 - [ ] Aim to learn at least one simple useful trick with both awk and sed
 
-## Day 9 - Ports, Open and Closed
+## Day9 - Ports, Open and Closed
 
 - Port 22: ssh (config in `/etc/ssh/sshd_config`)
 - Port 23: telnet
@@ -184,7 +184,7 @@ Try:
   - `sudo ufw allow http`
   - `sudo ufw enable`
 
-## Day 10 - Scheduling
+## Day10 - Scheduling
 
 - [ ] Look at the articles in the resources section - you should be aware of at and anacron but are not likely to use them in a server.
 
@@ -193,3 +193,14 @@ Try:
 - Each user potentially has their own set of scheduled task which can be listed with the crontab command (list out your user crontab entry with `crontab -l` and then that for root with `sudo crontab -l` )
 - Use `sudo vim /etc/crontab` to view system-wide settings. `ls /etc/cron.daily` to view daily tasks
 - Use `systemctl list-timers` to view system-wide schedules.
+
+## Day11 - Finding Things...
+
+- `which`
+- `find`: `sudo find /var -name access.log`, `sudo find /home -mtime -3`
+- `locate`: use `sudo apt install mlocate` to install `locate` and update the database for it with `sudo updatedb`, then search with `locate access.log`
+- `grep`: `sudo grep -R -i "permitRootLOGIn" /etc/*`
+
+### Extenstions
+
+- [ ] `find` examples and tricks
