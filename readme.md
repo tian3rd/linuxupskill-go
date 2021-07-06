@@ -183,3 +183,13 @@ Try:
 - To reverse, add the followings:
   - `sudo ufw allow http`
   - `sudo ufw enable`
+
+## Day 10 - Scheduling
+
+- [ ] Look at the articles in the resources section - you should be aware of at and anacron but are not likely to use them in a server.
+
+- [ ] Google for "logrotate", and then look at the logs in your own server to see how they've been "rotated".
+
+- Each user potentially has their own set of scheduled task which can be listed with the crontab command (list out your user crontab entry with `crontab -l` and then that for root with `sudo crontab -l` )
+- Use `sudo vim /etc/crontab` to view system-wide settings. `ls /etc/cron.daily` to view daily tasks
+- Use `systemctl list-timers` to view system-wide schedules.
