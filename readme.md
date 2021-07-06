@@ -142,3 +142,24 @@ Try:
 - [x] Use less or vim to view the code of the default page - normally at /var/www/html/index.html. This uses fairly complex modern web design - so you might like to browse to http://54.147.18.200/sample where you'll see a much simpler page. Use View Source in your browser to see the code of this, copy it, and then, in your ssh session sudo vim /var/www/html/index.html to first delete the existing content, then paste in this simple example - and then edit to your own taste. View the result with your workstation browser by again going to http://[external IP of your server]
   - [ ] What's the difference/relation between a public IPv4 address and IPv6? I used `ifconfig` to find the addresses, but it doesn't show my IPv4 address.
 - [x] As with most Linux services, Apache keeps its logs under the /var/log directory - look at the logs in /var/log/apache2 - in the access.log file you should be able to see your session from when you browsed to the test page. Notice that there's an overwhelming amount of detail - this is typical, but in a later lesson you'll learn how to filter out just what you want. Notice the error.log file too - hopefully this one will be empty!
+
+## Day8 - The Infamous "grep"
+
+- [x] Dump out the complete contents of a file with cat like this: cat /var/log/apache2/access.log
+- [x] Use less to open the same file, like this: less /var/log/apache2/access.log - and move up and down through the file with your arrow keys, then use “q” to quit.
+- [x] Again using less, look at a file, but practice confidently moving around using gg, GG and /, n and N (to go to the top of the file, bottom of the file, to search for something and to hop to the next "hit" or back to the previous one)
+- [x] View recent logins and sudo usage by viewing /var/log/auth.log with less
+- [x] Look at just the tail end of the file with tail /var/log/apache2/access.log (yes, there's also a head command!)
+- [ ] Follow a log in real-time with: tail -f /var/log/apache2/access.log (while accessing your server’s web page in a browser)
+- [x] You can take the output of one command and "pipe" it in as the input to another by using the | (pipe) symbol. So, dump out a file with cat, but pipe that output to grep with a search term - like this: cat /var/log/auth.log | grep "authenticating"
+- [x] Simplify this to: grep "authenticating" /var/log/auth.log
+- [x] Piping allows you to narrow your search, e.g. grep "authenticating" /var/log/auth.log | grep "root"
+- [x] Use the cut command to select out most interesting portions of each line by specifying "-d" (delimiter) and "-f" (field) - like: grep "authenticating" /var/log/auth.log| grep "root"| cut -f 10- -d" " (field 10 onwards, where the delimiter between field is the " " character). This approach can be very useful in extracting useful information from log data.
+- [x] Use the -v option to invert (not "root" in the following example) the selection and find attempts to login with other users: grep "authenticating" /var/log/auth.log| grep -v "root"| cut -f 10- -d" "
+
+### Extenstions
+
+- [x] See if you can extend your filtering of auth.log to select just the IP addresses, then pipe this to sort, and then further to uniq to get a list of all those IP addresses that have been "auditing" your server security for you.
+  - `grep "root" /var/log/auth.log | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\│}" | sort | uniq > ~/attackers.txt`
+- [ ] Investigate the awk and sed commands. When you're having difficulty figuring out how to do something with grep and cut, then you may need to step up to using these. Googling for "linux sed tricks" or "awk one liners" will get you many examples.
+- [ ] Aim to learn at least one simple useful trick with both awk and sed
