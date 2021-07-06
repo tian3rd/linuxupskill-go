@@ -1,0 +1,161 @@
+    1  sudo apt update
+    2  sudo apt upgrade
+    3  pwd
+    4  logout
+    5  ls
+    6  pwd
+    7  uptime
+    8  free
+    9  man free
+   10  free -h
+   11  df -h
+   12  uname -a
+   13  passwd
+   14  lscpu
+   15  uptime
+   16  top
+   17  htop
+   18  free -h
+   19  df -h
+   20  lsblk
+   21  tree /home/
+   22  sudo apt install tree
+   23  tree /home/
+   24  du -h
+   25  ncdu
+   26  sudo apt install ncdu
+   27  ncdu
+   28  man ncdu
+   29  ncdu 
+   30  netstat
+   31  sudo apt install net-tools
+   32  netstat -i
+   33  ifconfig 
+   34  ip addr 
+   35  uptime
+   36  cal
+   37  time
+   38  ls
+   39  pwd
+   40  cd /
+   41  ls
+   42  ls -aht
+   43  ls -lht
+   44  cd 
+   45  pwd
+   46  mkdir test
+   47  ls
+   48  ls -l -t -h
+   49  cd
+   50  pwd
+   51  ls -a
+   52  cat .bashrc
+   53  ls -a
+   54  cat .profile
+   55  vim ./bashrc
+   56  ls
+   57  vim ./.bashrc 
+   58  ls
+   59  vim ./.bashrc
+   60  exit 
+   61  uptime
+   62  ls -l /etc/shadow
+   63  ls 
+   64  ls -l
+   65  cat /etc/shadow
+   66  less /etc/shadow
+   67  sudo less /etc/shadow
+   68  reboot
+   69  sudo reboot
+   70  jj9
+   71  pwd
+   72  d
+   73  uptime
+   74  tldr sudo
+   75  sudo apt install tldr 
+   76  tldr sudo
+   77  sudo -i
+   78  less /var/log/auth.log
+   79  grep "sudo" /var/log/auth.log
+   80  tldr hostnamctl
+   81  tldr hostnamectl
+   82  sudo hostnamectl set-hostname "172.31.22.200"
+   83  date
+   84  timedatectl 
+   85  apt search "midnight commander"
+   86  mc
+   87  sudo apt install mc
+   88  mc
+   89  man hire
+   90  man hier
+   91  lsusb
+   92  lsblk
+   93  mc
+   94  apt search "hangman"
+   95  apt install bsdgames
+   96  sudo apt install hangman
+   97  sudo apt install bsdgames
+   98  man bsdgames
+   99  tldr bsdgames
+  100  badgames
+  101  less /etc/apt/sources.list
+  102  man more 
+  103  less /etc/services 
+  104  history
+  105  date
+  106  timedatectl 
+  107  sudo apt install bsdgames
+  108  pwd
+  109  ls -a
+  110  vim .bash_history 
+  111  vim .bashrc
+  112  sudo apt update
+  113  sudo apt upgrade
+  114  lscpu
+  115  vi --version
+  116  hier
+  117  sudo apt install hier
+  118  tldr hier
+  119  man hier
+  120  cp /etc/services ./
+  121  ls
+  122  pwd
+  123  vim services
+  124  sudo apt install apache2
+  125  sudo apt update
+  126  sudo systemctl status apache2
+  127  sudo systemctl stop apche2
+  128  sudo systemctl stop apache2
+  129  sudo systemctl status apache2
+  130  sudo systemctl start apache2
+  131  sudo systemctl status apache2
+  132  vim /etc/apache2/apache2.conf
+  133  ls /etc/apache2
+  134  man hier
+  135  vim /var/www/html/index.html
+  136  sudo vim /var/www/html/index.html
+  137  vim /var/log/apache2/access.log 
+  138  ls /var/log/apache2
+  139  vim /var/log/apache2/error.log 
+  140  exit
+  141  log
+  142  history
+  143  uptime 
+  144  sudo update && sudo upgrade 
+  145  sudo apt update 
+  146  sudo apt upgrade 
+  147  cat /var/log/apache2/access.log
+  148  less /var/log/apache2/access.log
+  149  less /var/log/auth.log
+  150  head /var/log/apache2/access.log
+  151  tail /var/log/apache2/access.log
+  152  cat /var/log/auth.log | grep "authenticating"
+  153  grep "authenticating" /var/log/auth.log
+  154  grep "authenticating" /var/log/auth.log | grep "root"
+  155  grep "authenticating" /var/log/auth.log | grep "root" | cut -f 10- -d' '
+  156  grep "authenticating" /var/log/auth.log | grep -v "root" | cut -f 10- -d' '
+  157  ls -ltr
+  158  cat services 
+  159  grep "services" < history
+  160  history | grep "services"
+  161  history > history-6jul2021
